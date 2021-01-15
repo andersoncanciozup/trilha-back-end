@@ -1,11 +1,10 @@
-package br.com.callCenterVendas.model.dao;
+package br.com.zup.estrelas.model.dao;
 
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import br.com.callCenterVendas.model.domain.Cliente;
+import br.com.zup.estrelas.model.domain.Cliente;
 
 
 public class ClienteDao {
@@ -42,9 +41,10 @@ public class ClienteDao {
         throw new IllegalArgumentException("Nao achou cliente para o cpf " + cpf);
     }
 
-    public void atualizar(Cliente cliente) throws SQLException, ClassNotFoundException {
+    public void atualizar(Cliente cliente) {
         Cliente clienteAlterado = new Cliente();
-        
+
+
         for (int i = 0; i < clientes.size(); i++) {
             if (clientes.get(i).getCpf().equals(cliente.getCpf())) {
                 clienteAlterado = clientes.get(i);
@@ -58,8 +58,20 @@ public class ClienteDao {
 
                 clientes.remove(clientes.get(i));
                 clientes.add(clienteAlterado);
+
+                return;
             }
         }
     }
 
+    public boolean cpfCadastrado(String cpf) {
+        for (int i = 0; i < clientes.size(); i++) {
+
+            if (clientes.get(i).getCpf().equals(cpf)) {
+                clientes.get(i);
+                return false;
+            }
+        }
+        return true;
+    }
 }

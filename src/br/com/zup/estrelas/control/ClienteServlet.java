@@ -1,4 +1,4 @@
-package br.com.callCenterVendas.control;
+package br.com.zup.estrelas.control;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,10 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import br.com.callCenterVendas.model.dao.ClienteDao;
-import br.com.callCenterVendas.model.domain.Cliente;
-import util.ValidacaoException;
+import br.com.zup.estrelas.model.dao.ClienteDao;
+import br.com.zup.estrelas.model.domain.Cliente;
 
 /**
  * Servlet implementation class ClienteServlet
@@ -33,7 +31,7 @@ public class ClienteServlet extends HttpServlet {
 				if (acao.equals("CREATE")) {
 					Cliente cliente = criaCliente(request);
 				
-					if (cliente.getCpf() != null) {
+					if (clienteDao.cpfCadastrado(cliente.getCpf())) {
 						clienteDao.salvar(cliente);
 						request.setAttribute("mensagem", "Cliente salvo com sucesso");
 					} else {

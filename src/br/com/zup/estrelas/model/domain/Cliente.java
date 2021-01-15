@@ -1,4 +1,4 @@
-package br.com.callCenterVendas.model.domain;
+package br.com.zup.estrelas.model.domain;
 
 public class Cliente {
 

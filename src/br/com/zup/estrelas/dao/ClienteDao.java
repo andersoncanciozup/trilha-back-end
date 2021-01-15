@@ -67,7 +67,7 @@ public class ClienteDao {
 
         Cliente clienteConsultado = manager.find(Cliente.class, cpf);
 
-        if (clienteConsultado.equals(null)) {
+        if (clienteConsultado != null) {
             return false;
         }
         return true;

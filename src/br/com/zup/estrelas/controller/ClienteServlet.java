@@ -1,4 +1,4 @@
-package br.com.zup.estrelas.control;
+package br.com.zup.estrelas.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;

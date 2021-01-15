@@ -4,13 +4,17 @@ package br.com.zup.estrelas.model.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Persistence;
 import br.com.zup.estrelas.model.domain.Cliente;
 
 
 public class ClienteDao {
 
-    List<Cliente> clientes = new ArrayList<Cliente>();
+    EntityManager manager;
 
+    public ClienteDao() {
+        this.manager = Persistence.createEntityManagerFactory("clientes").createEntityManager();
+    }
     public List<Cliente> getClientes() throws SQLException, ClassNotFoundException {
 
         return clientes;

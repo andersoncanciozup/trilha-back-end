@@ -1,4 +1,4 @@
-package br.com.zup.estrelas.control;
+package br.com.zup.estrelas.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,8 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import br.com.zup.estrelas.model.dao.ClienteDao;
-import br.com.zup.estrelas.model.domain.Cliente;
+import br.com.zup.estrelas.dao.ClienteDao;
+import br.com.zup.estrelas.main.Cliente;
 
 /**
  * Servlet implementation class ClienteServlet

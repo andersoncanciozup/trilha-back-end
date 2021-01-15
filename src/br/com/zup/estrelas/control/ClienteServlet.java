@@ -12,9 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.zup.estrelas.model.dao.ClienteDao;
 import br.com.zup.estrelas.model.domain.Cliente;
 
-/**
- * Servlet implementation class ClienteServlet
- */
 @WebServlet("/clienteServlet")
 public class ClienteServlet extends HttpServlet {
 
@@ -24,7 +21,7 @@ public class ClienteServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// CRUD - CREATE RETRIEVE UPDATE DELETE
+		
 		try {
 			String acao = request.getParameter("acao");
 			if (acao != null) {

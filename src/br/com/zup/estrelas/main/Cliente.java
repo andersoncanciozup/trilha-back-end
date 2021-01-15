@@ -1,11 +1,31 @@
 package br.com.zup.estrelas.main;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Cliente {
 
-    private String telefone;
-
+    @Id
     private String cpf;
-
+ 
+    @Column(name = "telefone", nullable = false)
+    private String telefone;
+    
+    @Column(name = "endereco", nullable = false)
+    private String endereco;
+    
+    @Column(name = "idade", nullable = false)
+    private String idade;
+    
+    @Column(name = "email", nullable = false)
+    private String email;
+    
+    @Column(name = "nome", nullable = false)
+    private String nome;
+    
+    
     public String getIdade() {
         return idade;
     }
@@ -29,15 +49,6 @@ public class Cliente {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    private String endereco;
-
-    private String idade;
-
-    private String email;
-
-    private String nome;
-
 
 
 //    public Cliente(String telefone, String cpf, String endereco, String idade, String email,

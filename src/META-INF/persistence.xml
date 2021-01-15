@@ -7,7 +7,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 		<!-- JPA -->
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<!-- Classe referente a entidade -->
-		<class>br.com.zup.estrelas.model.domain.Cliente</class>
+		<class>br.com.zup.estrelas.main.Cliente</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.cj.jdbc.Driver" />

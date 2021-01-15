@@ -4,6 +4,7 @@ package br.com.zup.estrelas.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
@@ -63,12 +64,12 @@ public class ClienteDao {
     }
 
     public boolean cpfCadastrado(String cpf) {
-        
+
         Cliente clienteConsultado = manager.find(Cliente.class, cpf);
-        
+
         if (clienteConsultado.equals(null)) {
-        return false;
-    }
+            return false;
+        }
         return true;
     }
 }

@@ -50,18 +50,6 @@ public class Cliente {
         this.nome = nome;
     }
 
-
-//    public Cliente(String telefone, String cpf, String endereco, String idade, String email,
-//            String nome) {
-//       
-//        this.telefone = telefone;
-//        this.cpf = cpf;
-//        this.endereco = endereco;
-//        this.idade = idade;
-//        this.email = email;
-//        this.nome = nome;
-//    }
-    
     public Cliente() {
         
     }

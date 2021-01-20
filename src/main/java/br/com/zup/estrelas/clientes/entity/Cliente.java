@@ -2,20 +2,26 @@ package br.com.zup.estrelas.clientes.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Cliente {
     
     @Id
-    private String cpf;
+    @Column(name = "id_cliente")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idCliente;
     
     @Column(nullable = false)
     private String nome;
     
     @Column(nullable = false)
-    private String idade;
+    private Integer idade;
     
+    @Column(nullable = false, unique = true)
+    private String cpf;
     
     @Column(nullable = false)
     private String email;
@@ -26,6 +32,14 @@ public class Cliente {
     @Column(nullable = false)
     private String endereco;
 
+    public Long getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Long idCliente) {
+        this.idCliente = idCliente;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -34,11 +48,11 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public String getIdade() {
+    public Integer getIdade() {
         return idade;
     }
 
-    public void setIdade(String idade) {
+    public void setIdade(Integer idade) {
         this.idade = idade;
     }
 

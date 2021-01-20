@@ -1,86 +1,85 @@
 package br.com.zup.estrelas.clientes.service;
 
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
+import java.util.Optional;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import br.com.zup.estrelas.clientes.dto.AlteraClienteDTO;
+import br.com.zup.estrelas.clientes.dto.ClienteDTO;
 import br.com.zup.estrelas.clientes.dto.MensagemDTO;
 import br.com.zup.estrelas.clientes.entity.Cliente;
+import br.com.zup.estrelas.clientes.repository.ClienteRepository;
 
 @Service
 public class ClienteService implements IClienteService {
 
     @Autowired
-    EntityManager manager;
+    ClienteRepository clienteRepository;
+    
+    public MensagemDTO criarCliente(ClienteDTO clienteDTO) {
 
-    @Transactional
-    public MensagemDTO criarCliente(Cliente cliente) {
-
-        Cliente clienteConsultado = manager.find(Cliente.class, cliente.getCpf());
-
-        if (clienteConsultado != null) {
+        if (clienteRepository.existsByCpf(clienteDTO.getCpf())) {
             return new MensagemDTO("Cliente com o CPF já cadastrado!");
         }
-
-        manager.persist(cliente);
-
+        
+        Cliente cliente = new Cliente();
+        BeanUtils.copyProperties(clienteDTO, cliente);
+        
+        clienteRepository.save(cliente);
+        
         return new MensagemDTO("Cliente adicionado com sucesso!");
     }
 
-    @Transactional
+    
     public MensagemDTO alterarCliente(String cpf, AlteraClienteDTO alteracao) {
 
-        Cliente clienteConsultado = manager.find(Cliente.class, cpf);
-
-        if (clienteConsultado.equals(null)) {
-            return new MensagemDTO(
-                    "Operação não realizada, cliente com CPF digitado não encontrado!");
+        Optional<Cliente> clienteBD = clienteRepository.findByCpf(cpf);
+        
+        if (clienteBD.isEmpty()) {
+            return new MensagemDTO("Operação não realizada, cliente com CPF digitado não encontrado!");
         }
-
-        BeanUtils.copyProperties(alteracao, clienteConsultado);
-   
-        manager.merge(clienteConsultado);
-   
-        return new MensagemDTO("Cliente alterado com sucesso!");
+        
+        Cliente cliente = clienteBD.get();
+        
+        BeanUtils.copyProperties(alteracao, cliente);
+        
+        clienteRepository.save(cliente);
+        
+       return new MensagemDTO("Cliente alterado com sucesso!");
     }
 
-
+    
     public List<Cliente> ListarClientes() {
-
-        Query query = manager.createQuery("select c from Cliente c");
-
-        List<Cliente> clientes = query.getResultList();
+        
+        List<Cliente> clientes = (List<Cliente>) clienteRepository.findAll();
         return clientes;
     }
 
-
+    
     public Cliente consultarCliente(String cpf) {
 
-        Cliente clienteConsultado = manager.find(Cliente.class, cpf);
-
-        if (clienteConsultado.equals(null)) {
+        Optional<Cliente> clienteConsultado = clienteRepository.findByCpf(cpf);
+        
+        if (clienteConsultado.isEmpty()) {
             return new Cliente();
         }
 
-        return clienteConsultado;
+        Cliente cliente = clienteConsultado.get();
+        
+        return cliente;
     }
 
-    @Transactional
     public MensagemDTO excluirCliente(String cpf) {
-        Cliente clienteARemover = manager.find(Cliente.class, cpf);
 
-        if (clienteARemover == null) {
-            return new MensagemDTO(
-                    "Operação não realizada, cliente com CPF digitado não encontrado!");
+        if (clienteRepository.existsByCpf(cpf)) {
+            
+            clienteRepository.deleteByCpf(cpf);
+            
+            return new MensagemDTO("Cliente excluído com sucesso!");
         }
         
-        manager.remove(clienteARemover);
-        
-        return new MensagemDTO("Cliente excluído com sucesso!");
+        return new MensagemDTO("Operação não realizada, cliente com CPF digitado não encontrado!");
     }
 
 }

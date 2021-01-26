@@ -1,5 +1,5 @@
 # trilha-back-end
-##DESAFIO 3 - Criar integração com a API da Marvel e persistir os dados mais relevantes dos Comics
+## DESAFIO 3 - Criar integração com a API da Marvel e persistir os dados mais relevantes dos Comics
 
 Geralmente um sistema não vive sozinho, quase sempre temos de implementar integrações com outros sistemas, para buscar ou enviar dados pertinentes ao projeto.
 

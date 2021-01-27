@@ -48,14 +48,12 @@ public class ClienteService implements IClienteService {
         
        return new MensagemDTO("Cliente alterado com sucesso!");
     }
-
     
     public List<Cliente> ListarClientes() {
         
         List<Cliente> clientes = (List<Cliente>) clienteRepository.findAll();
         return clientes;
     }
-
     
     public Cliente consultarCliente(String cpf) {
 

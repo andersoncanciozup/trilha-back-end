@@ -1,0 +1,16 @@
+2021-01-29 12:12:40,006 [restartedMain]  WARN ZupEstrelasClientesApplication:23 - não foi!
+2021-01-29 12:13:24,188 [restartedMain]  WARN ZupEstrelasClientesApplication:23 - não foi!
+2021-01-29 12:14:06,939 [restartedMain]  WARN br.com.zup.estrelas.clientes.ZupEstrelasClientesApplication:23 - não foi!
+2021-01-29 12:15:22,499 [restartedMain]  INFO br.com.zup.estrelas.clientes.ZupEstrelasClientesApplication:17 - Iniciando procedimentos
+2021-01-29 12:15:22,502 [restartedMain]  INFO br.com.zup.estrelas.clientes.ZupEstrelasClientesApplication:21 - venda salvo no banco com sucesso
+2021-01-29 12:15:22,502 [restartedMain]  WARN br.com.zup.estrelas.clientes.ZupEstrelasClientesApplication:23 - não foi!
+2021-01-29 12:17:03,149 [restartedMain]  INFO br.com.zup.estrelas.clientes.ZupEstrelasClientesApplication:15 - Aplicação iniciada
+2021-01-29 13:07:35,624 [restartedMain]  INFO br.com.zup.estrelas.clientes.ZupEstrelasClientesApplication:15 - Aplicação iniciada
+2021-01-29 13:08:43,264 [http-nio-8080-exec-1]  INFO br.com.zup.estrelas.clientes.controller.ClienteController:34 - Criando novo cliente
+2021-01-29 14:16:09,893 [restartedMain]  INFO br.com.zup.estrelas.clientes.ZupEstrelasClientesApplication:15 - Aplicação iniciada
+2021-01-29 14:16:43,466 [http-nio-8080-exec-1]  INFO br.com.zup.estrelas.clientes.controller.ClienteController:34 - Criando novo cliente
+2021-01-29 14:16:43,824 [http-nio-8080-exec-1]  WARN br.com.zup.estrelas.clientes.service.ClienteService:36 - Cliente com o CPF já cadastrado!
+2021-01-29 14:17:07,749 [http-nio-8080-exec-3]  WARN br.com.zup.estrelas.clientes.service.ClienteService:56 - Operação não realizada, cliente com CPF digitado não encontrado!
+2021-01-29 14:20:22,906 [restartedMain]  INFO br.com.zup.estrelas.clientes.ZupEstrelasClientesApplication:15 - Aplicação iniciada
+2021-01-29 14:20:28,505 [http-nio-8080-exec-1]  WARN br.com.zup.estrelas.clientes.service.ClienteService:56 - Operação não realizada, cliente com CPF digitado não encontrado!
+2021-01-29 14:20:52,613 [http-nio-8080-exec-3]  INFO br.com.zup.estrelas.clientes.service.ClienteService:40 - Cliente adicionado com sucesso!

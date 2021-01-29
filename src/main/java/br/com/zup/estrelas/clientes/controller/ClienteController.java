@@ -1,6 +1,7 @@
 package br.com.zup.estrelas.clientes.controller;
 
 import java.util.List;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import br.com.zup.estrelas.clientes.ZupEstrelasClientesApplication;
 import br.com.zup.estrelas.clientes.dto.AlteraClienteDTO;
 import br.com.zup.estrelas.clientes.dto.ClienteDTO;
 import br.com.zup.estrelas.clientes.dto.MensagemDTO;
@@ -22,11 +24,14 @@ import br.com.zup.estrelas.clientes.service.IClienteService;
 @RequestMapping("/clientes")
 public class ClienteController {
     
+//    static Logger logger = Logger.getLogger(ClienteController.class.getName());
+    
     @Autowired
     IClienteService clienteService;
     
     @PostMapping(produces = { MediaType.APPLICATION_JSON_VALUE })
     public MensagemDTO criarCliente(@RequestBody ClienteDTO cliente) {
+//        logger.info("Criando novo cliente");
         return clienteService.criarCliente(cliente);
     }
     
